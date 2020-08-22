@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 
-import { userList } from './../../assets/mocks/user-list.js';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { DataService } from '../services/data.service.js';
@@ -27,7 +26,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ) { }
   ngOnInit(): void {
     this.refresh(this.getDefaultOptions());
-
   }
 
   ngAfterViewInit(): void {
@@ -47,7 +45,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   deleteUser(id) {
-    console.log(id);
     const userData = JSON.parse(localStorage.userList);
     const filteredData = userData.filter((user) => user.id !== id);
     localStorage.userList = JSON.stringify(filteredData);

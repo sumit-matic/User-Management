@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
 import { roles } from './../../assets/mocks/roles';
-import { userList } from './../../assets/mocks/user-list';
 import { Observable, of, Subject } from 'rxjs';
 
 @Injectable({
@@ -27,7 +26,7 @@ export class DataService {
   }
 
   getUserList() {
-    if(localStorage.userList) {
+    if (localStorage.userList) {
       return JSON.parse(localStorage.userList);
     }
     return [];
@@ -37,7 +36,7 @@ export class DataService {
 
     let data = this.getUserList();
 
-    if(JSON.parse(localStorage.user) !== 'admin') {
+    if (JSON.parse(localStorage.user) !== 'admin') {
       data =  data.filter((d) => d.userName === JSON.parse(localStorage.user));
     }
 

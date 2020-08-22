@@ -22,4 +22,10 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call logout', () => {
+    const logout: jasmine.Spy = spyOn(component, 'logout').and.callThrough();
+    component.logout();
+    expect(logout).toHaveBeenCalled();
+  });
 });

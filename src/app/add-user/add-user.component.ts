@@ -26,7 +26,6 @@ export class AddUserComponent implements OnInit {
       isEdit = !!params.id;
       this.id = +params.id;
     });
-    console.log(isEdit);
     if (!isEdit) {
       this.addForm = this.formBuilder.group({
         userName: ['', Validators.required],
