@@ -31,17 +31,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    if (this.sort) {
+      this.sort.sortChange.subscribe((sort: Sort) => {
+        console.log('sortChange', this.sort.active);
+        this.paginator.pageIndex = 0;
+        this.refresh(this.getCurrentOptions());
+      });
 
-    this.sort.sortChange.subscribe((sort: Sort) => {
-      console.log('sortChange', this.sort.active);
-      this.paginator.pageIndex = 0;
-      this.refresh(this.getCurrentOptions());
-    });
-
-    this.paginator.page.subscribe((page: PageEvent) => {
-      console.log('paginator ', page);
-      this.refresh(this.getCurrentOptions());
-    });
+      this.paginator.page.subscribe((page: PageEvent) => {
+        console.log('paginator ', page);
+        this.refresh(this.getCurrentOptions());
+      });
+  }
 
   }
 

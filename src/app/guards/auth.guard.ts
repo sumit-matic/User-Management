@@ -33,12 +33,15 @@ canActivate() {
         return true;
       }
     }
-    else if (localStorage.user.length > 0) {
+    else if (localStorage.user) {
       return true;
     }
 
+    if (userData) {
+      alert("User doesn't exists");
+    }
+
     // not logged in so redirect to login page with the return url
-    alert("User doesn't exists");
     this.router.navigate(['/login']);
     return false;
 }

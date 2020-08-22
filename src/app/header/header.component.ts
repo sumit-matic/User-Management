@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-header',
@@ -7,20 +8,21 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private readonly changeDetectorRef: ChangeDetectorRef) { }
+  constructor(private readonly dataService: DataService, private readonly changeDetectorRef: ChangeDetectorRef) { }
 
   login: boolean;
 
   ngOnInit(): void {
-    if(localStorage.user !== '') {
-      this.login = true;
-    }
+      this.dataService.loginSubject.subscribe((data) => {
+        this.login = data;
+        this.changeDetectorRef.detectChanges();
+      });
   }
 
   logout() {
     localStorage.user = '';
     this.login = false;
-    this.changeDetectorRef.detectChanges();
+    this.dataService.loginSubject.next(false);
   }
 
 }

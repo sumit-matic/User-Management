@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { roles } from './../../assets/mocks/roles';
 import { userList } from './../../assets/mocks/user-list';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ import { Observable, of } from 'rxjs';
 export class DataService {
 
   public user: any;
+  public loginSubject: Subject<boolean> = new Subject<boolean>();
 
   constructor() { }
 
