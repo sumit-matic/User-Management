@@ -1,0 +1,10 @@
+<div class="header">
+  <div class="header__title">
+    <mat-icon class="icon">groups</mat-icon>
+    User Management System
+  </div>
+
+  <button  *ngIf = "login" (click) = "logout()" [routerLink]="'/login'" mat-icon-button class="logout">
+    <mat-icon>power_settings_new</mat-icon>
+  </button>
+</div>

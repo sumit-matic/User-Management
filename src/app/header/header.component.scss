@@ -1,0 +1,29 @@
+@import '../../vars.scss';
+.header {
+  height: 50px;
+  width: 100%;
+  background-color: map-get($color-palette, flt-primary);
+  color: map-get($color-palette, flt-white);
+  display: flex;
+  justify-content: center;
+
+  &__title {
+    font-size: 2em;
+    font-weight: bold;
+    top: 20%;
+    position: relative;
+    text-align: center;
+  }
+
+  .logout {
+    height: 36px;
+    width: 36px;
+    top: 4px;
+    left:25%;
+
+    .mat-button-wrapper {
+      padding: 0;
+    }
+
+  }
+}
